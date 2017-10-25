@@ -15,7 +15,7 @@ void draw() {
   strokeCap(SQUARE);
   fill(255,236,239);
   
-String s = "Appreciate the times when the trees will be bare, and look forward to the times when we may pick the fruit.-Anton Chekhov";
+String s = "Appreciate the times when the trees will be bare.";
 fill(50);
 text(s, 20, 20, 80, 200);  
 

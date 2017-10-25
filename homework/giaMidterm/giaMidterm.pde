@@ -1,6 +1,7 @@
-int sceneNumber; 
+int sceneNumber = 0; 
 
 void setup(){
+  size( 1000, 1000); 
   tree1Setup();
   tree2Setup(); 
   tree3Setup();
@@ -20,28 +21,28 @@ void draw(){
       break; 
     //last scene number
     case 2: 
+      tree3Draw(); 
       //code for tree 3 
       break; 
     case 3: 
-      //code for tree 4
+      tree4Draw(); 
       break; 
     case 4: 
       sceneNumber = 0; 
   }
   
+  println(sceneNumber); 
+
 }
 
 void mousePressed(){
-  sceneNumber ++; 
+  sceneNumber += 1; 
   
 }
 
+float theta;
 void tree1Setup(){
   //code from void setup of tree 1  
-  
- float theta;   
- size(1000, 500);
-  
 }
 
 void tree1Draw(){
@@ -53,12 +54,11 @@ void tree1Draw(){
   strokeCap(SQUARE);
   fill(255,236,239);
   
-String s = "Appreciate the times when the trees will be bare, and look forward to the times when we may pick the fruit.-Anton Chekhov";
-fill(50);
-text(s, 20, 20, 80, 200);  
-
-
-
+  //Still can't get tree 1 to appear 
+  
+  String s = "Appreciate the times when the trees will be bare.";
+  fill(50);
+  text(s, 20, 20, 80, 200);  
 
   float a = (mouseX / (float) width) * 90f;
 
@@ -78,8 +78,6 @@ void branch(float h) {
   
   h *= 0.66;
   
-  
-  
   if (h > 2) {
     pushMatrix();    
     rotate(theta);   
@@ -98,10 +96,10 @@ void branch(float h) {
   }
 }
   
-
+float xoff = 0.1; 
 void tree2Setup(){
   //code from tree 2 setup. Tree 2 has this "float xoff = 0.1;" before void setup 
-  size(800,400);
+
   background(112,84,56);
   smooth();
   
@@ -130,18 +128,15 @@ void tree2Draw(){
 void tree3Setup(){
   //code from void setup of tree 3
   
-  size(800,600);
-  background(211,219,220);
-  smooth();
-  stroke(178,165,167);
+
   
-  noLoop(); 
+  //noLoop(); 
 }
 
 void tree3Draw(){
   //doe from void draw of tree 3
   
-   translate(width/2,height);
+  translate(width/2,height);
   rotate(random(-PI/8));
   segment(100, 10);
   rotate(random(PI/4));
@@ -157,12 +152,6 @@ text(s, 76, 300, 120, 50);  // I can't get the text to show up on sceen. Should 
 
   
 }
-
-void mousePressed(){
-  
-  redraw();
-}
-
 
 void segment(float h, int level){
   float c = random(100);
@@ -193,14 +182,12 @@ void segment(float h, int level){
   }   
 }
   
-  void tree4Setup(){
+void tree4Setup(){
     //code from void setup of tree 4   
-{
-  size(600,600);
-  noLoop();
+  //noLoop();
   textSize(15);
-text("In nature, nothing is perfect and everything is perfect. Trees can be contorted, bent in weird ways, and they're still beautiful -Alice Walker", 10, 20); 
-fill(0, 102, 153); 
+  text("In nature, nothing is perfect and everything is perfect. Trees can be contorted, bent in weird ways, and they're still beautiful -Alice Walker", 10, 20); 
+  fill(0, 102, 153); 
 }
     
 void tree4Draw(){    
@@ -235,8 +222,4 @@ void branch(int depth)
     }
 }
 
-void mouseClicked()
-{
-  redraw(); 
-}   
-  
+//References and inspirations for this project come from Open Processing. Credit goes to respective owners 
